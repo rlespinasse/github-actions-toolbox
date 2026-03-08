@@ -1,0 +1,29 @@
+version: 2
+
+builds:
+  - binary: ghat
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - linux
+      - darwin
+      - windows
+    goarch:
+      - amd64
+      - arm64
+
+archives:
+  - formats:
+      - tar.gz
+    format_overrides:
+      - goos: windows
+        formats:
+          - zip
+
+brews:
+  - repository:
+      owner: rlespinasse
+      name: homebrew-tap
+      token: "{{ .Env.HOMEBREW_TAP_GITHUB_TOKEN }}"
+    homepage: https://github.com/rlespinasse/github-actions-toolbox
+    description: CLI toolbox for GitHub Actions
