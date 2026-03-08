@@ -7,6 +7,12 @@ on:
         description: "Run in snapshot mode (no publish)"
         type: boolean
         default: false
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Run in snapshot mode (no publish)"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
