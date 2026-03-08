@@ -7,10 +7,6 @@ on:
         description: "Run in snapshot mode (no publish)"
         type: boolean
         default: false
-  workflow_run:
-    workflows: ["Release"]
-    types:
-      - completed
 
 permissions:
   contents: write
@@ -18,9 +14,6 @@ permissions:
 jobs:
   goreleaser:
     runs-on: ubuntu-latest
-    if: >-
-      github.event_name == 'workflow_call' ||
-      github.event.workflow_run.conclusion == 'success'
     steps:
       - name: Checkout
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
