@@ -20,7 +20,7 @@ archives:
         formats:
           - zip
 
-brews:
+homebrew_casks:
   - repository:
       owner: rlespinasse
       name: homebrew-tap
