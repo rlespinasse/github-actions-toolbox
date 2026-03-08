@@ -58,3 +58,11 @@ jobs:
     permissions:
       contents: write
     uses: ./.github/workflows/release.yaml
+
+  goreleaser:
+    needs: release
+    if: github.ref == 'refs/heads/main'
+    permissions:
+      contents: write
+    uses: ./.github/workflows/goreleaser.yaml
+    secrets: inherit
