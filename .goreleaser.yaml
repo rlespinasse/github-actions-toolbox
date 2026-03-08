@@ -27,3 +27,5 @@ homebrew_casks:
       token: "{{ .Env.HOMEBREW_TAP_GITHUB_TOKEN }}"
     homepage: https://github.com/rlespinasse/github-actions-toolbox
     description: CLI toolbox for GitHub Actions
+    binaries:
+      - ghat
