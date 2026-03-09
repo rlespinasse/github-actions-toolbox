@@ -10,6 +10,24 @@ A CLI toolbox for GitHub Actions utilities.
 brew install rlespinasse/tap/ghat
 ```
 
+#### macOS Gatekeeper notice
+
+On macOS, you may see a warning: _"Apple is not able to verify that it is free from malware that could harm your Mac or compromise your privacy."_
+
+This is because the binary is ad-hoc signed but not notarized by Apple.
+
+> [!NOTE]
+> Apple notarization requires a paid Apple Developer account ($99/year). It consists of an automated malware scan — not a manual security review or code audit — and does not guarantee the software is safe. Open-source projects can be verified by reviewing the source code and build pipeline directly.
+
+To allow it to run, either:
+
+- **Via System Settings (UI):** Go to **System Settings > Privacy & Security**, scroll down, and click **Open Anyway** next to the blocked app message.
+- **Via terminal:**
+
+  ```bash
+  xattr -d com.apple.quarantine $(which ghat)
+  ```
+
 ### From source
 
 ```bash
