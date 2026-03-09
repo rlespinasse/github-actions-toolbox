@@ -1,16 +1,35 @@
 version: 2
 
 builds:
-  - binary: ghat
+  - id: default
+    binary: ghat
     env:
       - CGO_ENABLED=0
     goos:
       - linux
-      - darwin
       - windows
     goarch:
       - amd64
       - arm64
+  - id: darwin
+    binary: ghat
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - darwin
+    goarch:
+      - amd64
+      - arm64
+
+signs:
+  - cmd: rcodesign
+    args:
+      - sign
+      - "${artifact}"
+    ids:
+      - darwin
+    artifacts: binary
+    output: false
 
 archives:
   - formats:
